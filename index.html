@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vlocity</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+<body>
+
+  <div id="app">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="search">
+        <div class="search-icon1">
+          <img src="img/search.svg" alt="search">
+        </div>
+        <input type="text" class="search-input" v-model="search" placeholder="Search contacts">
+        <div class="search-icon2">
+          <img src="img/close.svg" alt="close" @click="search = ''" :class="{active: search.length>0}">
+        </div>
+      </div>
+      <div class="profile">
+        <div class="name">John Doe</div>
+        <img src="http://www.designskilz.com/random-users/images/imageM37.jpg" alt="profile-img" class="header-prof-img">
+        <div class="dropdown">
+          <ul>
+            <li>Profile</li>
+            <li>Settings</li>
+            <li>Logout</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Header End -->
+
+    <div class="content">
+      <div class="contacts">
+        <transition-group tag="div" name="contact-names">
+          <div class="names" v-for="(contact, index) in filteredList" :key="index" @click="showContact(index)" :class="{active: selectedContact == contact.name}">
+            {{contact.name}}
+            <img src="img/arrow.svg" alt="arrow" class="contact-arrow">
+          </div>
+        </transition-group>
+      </div>
+
+      <!-- No Profile Selected -->
+      <div class="empty-profile"  v-if="!profile">
+        <img src="img/team.svg" alt="team" class="empty-team">
+        <div class="empty-title">Select a Contact on the left</div>
+        <div class="box1"></div>
+        <div class="box2"></div>
+      </div>
+      <!-- No Profile Selected End -->
+
+      <div class="contacts-profile" v-else>
+        <div class="profile-media">
+          <img :src="profile.img" class="content-prof-img" class="prof-img">
+          <div>
+            <button class="blue-btn">Send Message</button>
+            <br>
+            <div class="likes">
+              <img src="img/like.svg" alt="likes" class="heart-img fadeIn" v-for="ratings in profile.rating">
+              <img src="img/like2.svg" alt="no-likes" class="heart-img no-likes fadeIn" v-for="ratings in profileRatings">
+            </div>
+          </div>
+        </div>
+        <p class="prof-description">
+          {{profile.Description}}
+        </p>
+        <table class="prof-table">
+          <thead>
+            <tr>
+              <th>Likes</th>
+              <th>Dislikes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(likesDislikes, index) in profile.Likes" :key="index">
+              <td>{{profile.Likes && profile.Likes[index]}}</td>
+              <td>{{profile.Dislikes && profile.Dislikes[index]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div><!--Content End-->
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

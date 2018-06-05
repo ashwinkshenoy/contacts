@@ -1,0 +1,372 @@
+
+@import url('https://fonts.googleapis.com/css?family=Muli:200,300,400,600');
+
+
+/* General */
+body {
+  font-family: 'Muli', sans-serif;
+  margin: 0;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+img {
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -webkit-user-drag: none;
+}
+/* General End */
+
+/* Header */
+.header {
+  display: grid;
+  grid-template-columns: 20fr 50fr;
+  padding: 5px 15px;
+  border-bottom: solid 1px #d7d7d7;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+.search-icon1,
+.search-icon2 {
+  display: flex;
+}
+.search-icon1 img {
+  border-radius: 3px 0 0 3px;
+  border-right: 0;
+  border: solid 1px #d6d6d6;
+  display: flex;
+  height: 15px;
+  margin-right: -1px;
+  padding: 10px 0 10px 10px;
+  width: 15px;
+}
+.search-icon2 img {
+  cursor: default;
+  display: flex;
+  height: 15px;
+  margin-left: -1px;
+  padding: 10px;
+  width: 15px;
+  opacity: 0;
+}
+.search-icon2 img.active {
+  opacity: 1;
+  cursor: pointer;
+}
+.search-icon2 {
+  border: solid 1px #d6d6d6;
+  border-radius: 0 3px 3px 0;
+  border-left: none;
+}
+.search-input {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0 10px;
+  border: solid 1px #d6d6d6;
+  border-left: none;
+  border-right: none;
+  color: #313131;
+}
+.search-input:focus {
+  outline: none !important;
+}
+
+.profile {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+}
+.profile .name {
+  font-size: 16px;
+  font-weight: 300;
+}
+.header-prof-img {
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 15px;
+  padding: 10px 0;
+}
+.header-prof-img:hover + .dropdown {
+  display: block;
+}
+.dropdown {
+  display: none;
+	position: relative;
+	background: #ffffff;
+  top: -18px;
+}
+.dropdown:hover {
+  display: block;
+}
+.dropdown:after, .dropdown:before {
+  bottom: -51px;
+  left: -35px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.dropdown:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #ffffff;
+	border-width: 9px;
+	margin-left: -15px;
+}
+.dropdown:before {
+	border-color: rgba(215, 215, 215, 0);
+	border-bottom-color: #d7d7d7;
+	border-width: 10px;
+	margin-left: -16px;
+}
+.dropdown ul {
+  background: white;
+  border: solid 1px #d7d7d7;
+  padding: 0;
+  top: 50px;
+  position: absolute;
+  right: 0;
+  list-style: none;
+  margin: 0;
+}
+.dropdown ul li {
+  border-bottom: solid 1px #e7e7e7;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 15px 40px;
+}
+.dropdown ul li:hover {
+  background: #f7f7f7;
+}
+.dropdown ul li:last-child {
+  border-bottom: 0;
+}
+/* Header End */
+
+
+/* Contents */
+.content {
+  display: grid;
+  grid-template-columns: 4.5fr 10fr;
+}
+
+.contacts {
+  border-right: solid 1px #d7d7d7;
+}
+.contacts .names {
+  font-size: 18px;
+  font-weight: 300;
+  padding: 30px 20px;
+  cursor: pointer;
+  transition: 0.1s all linear;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.content .names.active {
+  background: #f7f7f7;
+  font-weight: 600;
+  color: #2bc4dd;
+}
+.content .names:hover {
+  background: #f7f7f7;
+}
+.contact-arrow {
+  width: 15px;
+  transform: rotate(270deg);
+  float: right;
+  position: absolute;
+  right: 15px;
+}
+
+.empty-profile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 28px;
+  font-weight: 400;
+  color: #584741;
+  height: 90vh;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.empty-team {
+  width: 250px;
+}
+.empty-title {
+  position: relative;
+}
+.empty-title:after {
+  background: linear-gradient(to right, #ffafbd, #ffc3a0);
+  bottom: 0;
+  content: '';
+  height: 10px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  transform: skew(-8deg) scale(1) rotate(1deg);
+  width: 60%;
+  z-index: -1;
+}
+.box1 {
+  background: linear-gradient(to bottom, #a92f54, #ff507c);
+  border-radius: 10px;
+  height: 200px;
+  position: absolute;
+  right: -125px;
+  top: 0;
+  transform: rotate(70deg);
+  width: 200px;
+  z-index: 0;
+}
+.box2 {
+  background: white;
+  border-radius: 50%;
+  border: solid 15px #ab47bc;
+  bottom: -75px;
+  height: 100px;
+  left: 10px;
+  position: absolute;
+  width: 100px;
+  z-index: 0;
+}
+.contacts-profile {
+  padding: 30px;
+  width: 80%;
+}
+.profile-media {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.content-prof-img {
+  border-radius: 5px;
+  height: 250px;
+  object-fit: cover;
+  width: 250px;
+  margin-right: 30px;
+}
+.blue-btn {
+  background-image: linear-gradient(-90deg,#2bc4dd,#3489d1 50%,#2bc4dd);
+  background-size: 200% auto;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 300;
+  height: 50px;
+  outline: none;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  transition: all .1s linear;
+  transition: all .2s linear;
+  width: 100%;
+}
+.blue-btn:hover {
+  background-position: 100%;
+  box-shadow: none;
+}
+.likes .heart-img {
+  width: 30px;
+  margin: 30px 3px;
+}
+.no-likes {
+  left: -4px;
+  position: relative;
+}
+.prof-description {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 300;
+  text-align: justify;
+  margin: 50px 0;
+}
+.prof-table {
+  border: 1px solid #dee2e6;
+  width: 60%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-collapse: collapse;
+  text-align: left;
+}
+.prof-table thead th {
+  border-bottom: 2px solid #dee2e6;
+  vertical-align: bottom;
+  border: 1px solid #dee2e6;
+}
+.prof-table th {
+  padding: .75rem;
+}
+.prof-table td {
+  padding: .75rem;
+  vertical-align: top;
+  border: 1px solid #dee2e6;
+}
+.prof-table tbody tr:hover {
+  background-color: rgba(0,0,0,.075);
+}
+/* Contents End */
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+}
+
+/* Contact-names */
+.contact-names {
+  backface-visibility: hidden;
+  z-index: 1;
+}
+.contact-names-move {
+  transition: all 0.2s ease-in-out ;
+}
+.contact-names-enter-active {
+  transition: all 0.4s ease-out;
+}
+.contact-names-leave-active {
+  transition: all 0.2s ease-in;
+  position: absolute;
+  z-index: 0;
+}
+.contact-names-enter,
+.contact-names-leave-to {
+  opacity: 0;
+}
+/* Keyframes End */
