@@ -117,25 +117,25 @@ img {
 .dropdown:after, .dropdown:before {
   bottom: -51px;
   left: -35px;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
 }
 
 .dropdown:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-bottom-color: #ffffff;
-	border-width: 9px;
-	margin-left: -15px;
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #ffffff;
+  border-width: 9px;
+  margin-left: -15px;
 }
 .dropdown:before {
-	border-color: rgba(215, 215, 215, 0);
-	border-bottom-color: #d7d7d7;
-	border-width: 10px;
-	margin-left: -16px;
+  border-color: rgba(215, 215, 215, 0);
+  border-bottom-color: #d7d7d7;
+  border-width: 10px;
+  margin-left: -16px;
 }
 .dropdown ul {
   background: white;
